@@ -93,9 +93,32 @@ app.get("/articles/:id", function (req, res) {
 
 
 // Post route that creates new note/updates
-app.post("", function (req, res) {
+app.post("/articles/:id", function (req, res) {
+ // Create a new note and pass the req.body to the entry, then save the new note
+ var newNote = new Note(req.body);
 
-})
+ newNote.save(function(error, doc) {
+// If error then console log error, otherwise search by article ID and update note
+   if (error) {
+     console.log(error);
+   }
+   else {
+     Article.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
+     // Execute the above query
+     .exec(function(err, doc) {
+       // Console log errors; if no errors then send document to the browser
+       if (err) {
+         console.log(err);
+       }
+       else {
+         res.send(doc);
+       }
+     });
+   }
+ });
+});
+
 
 var port = process.env.PORT || 3000;
 app.listen(port);
+console.log("Listening on" +  port);
