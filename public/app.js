@@ -34,4 +34,30 @@ $(document).on("click", "p", function() {
         }
       });
   });
+  // On click that captures the "savenote" button
+$(document).on("click", "#savenote", function() {
+    // Declaring variable that grabs the ID associated with the article from the submit button
+    var thisId = $(this).attr("data-id");
   
+    // POST request that changse the note based on what user inputs
+    $.ajax({
+      method: "POST",
+      url: "/articles/" + thisId,
+      data: {
+        // Value taken from title input
+        title: $("#titleinput").val(),
+        // Value taken from note
+        body: $("#bodyinput").val()
+      }
+    })
+      .done(function(data) {
+        // Console log the response
+        console.log(data);
+        // Empty the notes section
+        $("#notes").empty();
+      });
+  
+    // Also, remove the values entered in the input and textarea for note entry
+    $("#titleinput").val("");
+    $("#bodyinput").val("");
+  });
