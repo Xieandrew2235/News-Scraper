@@ -5,23 +5,13 @@
 ## Instructions
 <hr>
 
-1. For this app, we will need "" NPM packages. Clone down the repo to a local directory, and from your bash please navigate over to the "scrapehw" folder in your terminal, and type in your command line:
+1. For this app, we will need NPM packages. Clone down the repo to a local directory, and from your bash please navigate over to the "scrapehw" folder in your terminal, and type in your command line: "npm install"
 
-    * npm install 
-    * npm install 
 
-<!-- Gif/SS here -->
+2. Once you have installed all of the NPM packages needed, you can then run the line of code: "node server.js" to start up our server, which will say "Connected on 3000" if you are succesfully connected. Then, you would open up your browser and go to https://localhost:3000/
 
-![GIF]()
+3. Upon landing, you will see all the scraped articles from CoinDesk, and when you click the article you will be able to save a note to that specific article.
 
-2. 
-
-3. 
-
-<!-- Gif/SS here -->
-
-![GIF]()
-
-4. 
+![Screenshot](/ss.png)
 
 # Enjoy the scrap(e)!
