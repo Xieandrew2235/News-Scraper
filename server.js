@@ -18,12 +18,12 @@ var app = express();
 
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb: https://git.heroku.com/still-eyrie-18314.git"
+mongoose.connect("mongodb://heroku_8prtxlbx:dqks82qio0tsmdl892otjj7e84@ds133084.mlab.com:33084/heroku_8prtxlbx");
 var db = mongoose.connection;
 
 // If there is an error connecting to mongoose, console log errior
